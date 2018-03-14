@@ -26,7 +26,7 @@ use App\AuralAndAccompaniment;
 
 
 
-class MainController extends Controller
+class MainController extends Controlle
 {
     
     public function index(Request $request)
