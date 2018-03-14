@@ -1,0 +1,125 @@
+
+@include('Layouts.BSM')
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 col-md-12">
+			<div>
+			
+
+</br></br></br>			
+<form action="/Accounts/Accounts/New_admission/EnterStudentIndividual" method="post">
+{{ csrf_field() }}				
+<table class="table table-bordered table-hover table-condensed">			
+
+
+<tr style="background-color: black; color: white; text-align: center; font-size: 16px">
+<td colspan ="2"><b>New Admission</b></td>
+</tr>
+
+		
+<div class"form-group">
+	<tr><td><strong>Name of the Student</strong></td>
+	<td><input class="form-control text-uppercase" type="text" name="stu_name" readonly value="{{ $stu_name }}"/></td>
+</tr>
+</div>
+
+
+
+<div class"form-group">
+<tr>
+	<td><strong>Date of Birth</strong></td>
+	<td><input class="form-control "type="text" name="dob" readonly value="{{ $dob }}"></td>	
+</tr>
+</div>
+
+
+
+<div class"form-group">
+<tr>
+	
+	<td><strong>Choice of Discipline</strong></td>
+	<td><input class="form-control "type="text" id="chooseDiscipline" name="discipline" readonly value="{{ $chosen_discipline->disciplines }}">
+	<input class="form-control "type="hidden" name="fantom_discipline" value="{{ $discipline_id }}"></td>
+   
+</tr>
+</div>
+  <tr>
+    <td><strong>Father's Name</strong></td>
+    <td><input name="father_name" type="text" class="form-control" readonly value="{{ $father_name }}"></td>
+   
+ 	<td><strong>Father's Designation</strong></td>  
+    <td><input name="father_designation" type="text" class="form-control" readonly value="{{ $father_designation }}"></td>
+</tr>
+     <tr>
+    <td><strong>Mother's Name</strong></td>
+    <td><input name="mother_name" type="text" class="form-control" readonly value="{{ $mother_name }}"></td>
+   
+ 	<td><strong>Mother's Designation</strong></td>  
+    <td><input name="mother_designation" type="text" class="form-control" readonly value="{{ $mother_designation }}"></td>	
+</tr>
+<tr>
+      <td><label for="address">Address</label></td>
+      <td>
+        <input class="form-control" name="address" size="15" id="address" readonly rows = "5" value="{{ $address }}"></input>
+      </td>
+      <td><label for="pincode">Pincode</label></td>
+       <td><input class="form-control" id="pincode" name="pincode" type="text" readonly value="{{ $pincode }}"></td>	  
+    </tr>
+<div class"form-group">
+<tr>
+    <td><label for="the_phone">Phone Number</label></td>
+    <td><input class="form-control" type="text" name="phone_no" size="15" id="the_phone" value="{{ $phone_no }}" readonly/></td>
+</tr>
+</div>
+
+
+<div class"form-group">
+<tr>
+      <td><label for="the_email2">Email Address</label></td>
+      <td><input class="form-control" type="text" name="email_address1" size="15" id="the_email" readonly value="{{ $email_address1 }}"/></td>
+</tr> 
+
+<div class"form-group">
+<tr>
+    <td><label for="the_grade2">Fee Parameter</label></td>
+    <td><select class="form-control" name="grades" id="the_grade">
+      <option>Choose Level</option>
+       @foreach ($fee_parameters as $fee_parameter)
+       <option value = "{{ $fee_parameter->grades }}">{{ $fee_parameter->particulars }}</option>
+        @endforeach
+    </select></td>
+  </tr>
+</div>	 
+
+<div class"form-group">	  
+<tr>
+   <td><label for="coi">Choice of Instructor</label></td>
+   <td><select class="form-control" name="instructor" id="coi">
+	<option>Instructor</option>
+	@foreach ($teacher_details as $t)
+    <option value ="{{ $t->teachers_id }}">{{ $t->teacher_name }}</option>
+    @endforeach
+    </select>
+    <input class="form-control" type="hidden" name="lesson_mode" size="15" value="{{ $lesson_mode }}"/><input type="hidden" name="user" value="{{ Auth::user()->id }}" /></td>
+<tr>
+<td colspan="2"><button class ="btn btn-primary btn-sm" type="submit" name="enter_new_student"/>Enter New Student</button></td>
+</tr>
+
+
+<script type="text/javascript">
+
+        history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+  
+  
+});
+  
+    </script>
+						</div><!--------------inside column------>
+					</div><!--------------column class------>
+				</div><!--------------row------>
+			</div><!--------------container------>
+	
+	
