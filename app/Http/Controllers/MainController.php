@@ -26,9 +26,6 @@ use App\AuralAndAccompaniment;
 
 
 
-
-
-
 class MainController extends Controller
 {
     
